@@ -8,4 +8,13 @@ const inserirUsuario = async (nome, email, senha) => {
     return usuario;
 };
 
-module.exports = { inserirUsuario };
+const buscarUsuarioPorEmail = async email => {
+    const usuario = bancoDeDados('usuarios').where({ email }).first();
+
+    return usuario;
+};
+
+module.exports = {
+    inserirUsuario,
+    buscarUsuarioPorEmail,
+};
