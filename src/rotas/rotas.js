@@ -1,5 +1,8 @@
-const { Routes } = require('express');
+const { Router } = require('express');
+const rotasUsuarios = require('./usuarios');
 
-const rotas = Routes();
+const rotas = Router();
+
+rotas.use(rotasUsuarios);
 
 module.exports = rotas;
