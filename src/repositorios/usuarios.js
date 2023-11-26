@@ -9,7 +9,7 @@ const inserirUsuario = async (nome, email, senha) => {
 };
 
 const buscarUsuarioPorEmail = async email => {
-    const usuario = bancoDeDados('usuarios').where({ email }).first();
+    const usuario = await bancoDeDados('usuarios').where({ email }).first();
 
     return usuario;
 };
