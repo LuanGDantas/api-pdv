@@ -16,4 +16,4 @@ const schemaUsuario = joi.object({
     }),
 });
 
-module.export = schemaUsuario;
+module.exports = schemaUsuario;
