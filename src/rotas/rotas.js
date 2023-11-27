@@ -5,10 +5,14 @@ const detalharUsuario = require('../controladores/usuarios/detalharUsuarios');
 
 const validarCorpoRequisicao = require('../intermediarios/validarCorpoRequisicao');
 const schemaUsuario = require('../validacoes/schemaUsuario');
+const autenticacaoToken = require('../intermediarios/autenticacaoToken');
 
 const rotas = Router();
 
-rotas.get('/usuario', detalharUsuario);
 rotas.post('/usuario', validarCorpoRequisicao(schemaUsuario), cadastrarUsuario);
+
+rotas.use(autenticacaoToken);
+
+rotas.get('/usuario', detalharUsuario);
 
 module.exports = rotas;
