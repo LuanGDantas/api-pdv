@@ -22,9 +22,7 @@ const loginUsuario = async (req, res) => {
 
         const token = gerarTokenAutenticacao({ id: usuario.id });
 
-        const { senha: _, ...usuarioLogado } = usuario;
-
-        return res.status(200).json({ usuario: usuarioLogado, token });
+        return res.status(200).json({ token });
     } catch (error) {
         console.error(error.message);
         return res.status(500).json({ mensagem: 'Erro Interno no Servidor' });

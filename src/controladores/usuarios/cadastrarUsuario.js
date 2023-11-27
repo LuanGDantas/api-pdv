@@ -17,7 +17,7 @@ const cadastrarUsuario = async (req, res) => {
 
         senha = await criptografarSenha(senha);
 
-        const usuario = await inserirUsuario(nome, email, senha);
+        const { senha: _, usuario } = await inserirUsuario(nome, email, senha);
 
         return res.status(201).json(usuario);
     } catch (error) {

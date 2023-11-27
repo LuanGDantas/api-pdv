@@ -2,14 +2,12 @@ const { Router } = require('express');
 
 const cadastrarUsuario = require('../controladores/usuarios/cadastrarUsuario');
 const detalharUsuario = require('../controladores/usuarios/detalharUsuarios');
-
-const validarCorpoRequisicao = require('../intermediarios/validarCorpoRequisicao');
 const loginUsuario = require('../controladores/usuarios/loginUsuario');
 
-const schemaUsuario = require('../validacoes/schemaUsuario');
-
+const validarCorpoRequisicao = require('../intermediarios/validarCorpoRequisicao');
 const autenticacaoToken = require('../intermediarios/autenticacaoToken');
 
+const schemaUsuario = require('../validacoes/schemaUsuario');
 const schemaLoginUsuario = require('../validacoes/schemaLoginUsuario');
 
 const rotas = Router();
