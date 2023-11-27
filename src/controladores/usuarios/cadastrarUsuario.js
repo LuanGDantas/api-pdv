@@ -1,8 +1,8 @@
 const {
     buscarUsuarioPorEmail,
     inserirUsuario,
-} = require('../repositorios/usuarios');
-const criptografarSenha = require('../utilitarias/criptografarSenha');
+} = require('../../repositorios/usuarios');
+const criptografarSenha = require('../../utilitarias/criptografarSenha');
 
 const cadastrarUsuario = async (req, res) => {
     let { nome, email, senha } = req.body;
@@ -25,4 +25,4 @@ const cadastrarUsuario = async (req, res) => {
     }
 };
 
-module.exports = { cadastrarUsuario };
+module.exports = cadastrarUsuario;
