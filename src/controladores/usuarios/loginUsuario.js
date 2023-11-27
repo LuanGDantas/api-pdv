@@ -1,6 +1,6 @@
 const { compare } = require('bcryptjs');
-const { sign } = require('jsonwebtoken');
 const { buscarUsuarioPorEmail } = require('../../repositorios/usuarios');
+const gerarTokenAutenticacao = require('../../utilitarias/gerarTokenAutenticacao');
 
 const loginUsuario = async (req, res) => {
     const { email, senha } = req.body;
@@ -20,9 +20,7 @@ const loginUsuario = async (req, res) => {
             });
         }
 
-        const token = sign({ id: usuario.id }, process.env.JWT_SECRET_KEY, {
-            expiresIn: '8h',
-        });
+        const token = gerarTokenAutenticacao({ id: usuario.id });
 
         const { senha: _, ...usuarioLogado } = usuario;
 
