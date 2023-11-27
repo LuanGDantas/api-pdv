@@ -1,8 +1,10 @@
 const { Router } = require('express');
-const rotasUsuarios = require('./rotasUsuarios');
+const { cadastrarUsuario } = require('../controladores/usuarios');
+const validarCorpoRequisicao = require('../intermediarios/validarCorpoRequisicao');
+const schemaUsuario = require('../validacoes/schemaUsuario');
 
 const rotas = Router();
 
-rotas.use(rotasUsuarios);
+rotas.post('/usuario', validarCorpoRequisicao(schemaUsuario), cadastrarUsuario);
 
 module.exports = rotas;
