@@ -8,6 +8,15 @@ const inserirUsuario = async (nome, email, senha) => {
     return usuario;
 };
 
+const alterarUsuario = async ({ id, nome, email, senha }) => {
+    const [usuario] = await bancoDeDados('usuarios')
+        .where({ id })
+        .update({ nome, email, senha })
+        .returning('*');
+
+    return usuario;
+};
+
 const buscarUsuarioPorEmail = async email => {
     const usuario = await bancoDeDados('usuarios').where({ email }).first();
 
@@ -16,5 +25,6 @@ const buscarUsuarioPorEmail = async email => {
 
 module.exports = {
     inserirUsuario,
+    alterarUsuario,
     buscarUsuarioPorEmail,
 };
