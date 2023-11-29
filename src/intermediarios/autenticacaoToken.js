@@ -13,7 +13,7 @@ const autenticacaoToken = async (req, res, next) => {
 
         const { id } = verify(tokenUsuario, process.env.JWT_SECRET_KEY);
 
-        const usuario = await knexConfigurado('usuarios').where({id}).first();
+        const usuario = await knexConfigurado('usuarios').where({ id }).first();
 
         if (!usuario) {
             return res.status(401).json({ mensagem: 'Usuario não autorizado' });
@@ -24,7 +24,7 @@ const autenticacaoToken = async (req, res, next) => {
     } catch (error) {
         console.log(error.message);
         return res.status(500).json({
-            mensagem: 'erro interno do servidor1',
+            mensagem: 'Erro Interno no Servidor',
         });
     }
 };
