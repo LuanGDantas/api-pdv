@@ -1,11 +1,7 @@
 const detalharUsuario = (req, res) => {
-    if (!req.usuario) {
-        return res.status(400).json({
-            mensagem:
-                'Para acessar este recurso um token de autenticação válido deve ser enviado.',
-        });
-    }
-    return res.status(200).json(req.usuario);
+    const { senha:_, ...usuario } = req.usuario;
+
+    return res.status(200).json(usuario);
 };
 
 module.exports = detalharUsuario;
