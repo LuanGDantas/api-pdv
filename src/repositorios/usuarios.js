@@ -14,6 +14,7 @@ const buscarUsuarioPorEmail = async email => {
     return usuario;
 };
 
+
 module.exports = {
     inserirUsuario,
     buscarUsuarioPorEmail,
