@@ -4,8 +4,8 @@
     "description": "API para um PDV (Frente de Caixa)",
     "main": "index.js",
     "scripts": {
-        "dev": "nodemon src/index.js",
-        "start": "node src/index.js"
+        "dev": "nodemon ./src/index.js",
+        "start": "node ./src/index.js"
     },
     "repository": {
         "type": "git",
