@@ -6,7 +6,12 @@ const autenticacaoToken = async (req, res, next) => {
 
     try {
         if (!authorization) {
-            return res.status(401).json({ mensagem: 'Usuario não autorizado' });
+            return res
+                .status(400)
+                  .json({
+                    mensagem:
+                        'Para acessar este recurso um token de autenticação válido deve ser enviado.',
+                });
         }
 
         const tokenUsuario = authorization.split(' ')[1];
@@ -22,9 +27,8 @@ const autenticacaoToken = async (req, res, next) => {
 
         next();
     } catch (error) {
-        console.log(error.message);
-        return res.status(500).json({
-            mensagem: 'Erro Interno no Servidor',
+        return res.status(401).json({
+            mensagem: 'Usuário não autorizado',
         });
     }
 };

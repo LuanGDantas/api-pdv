@@ -24,7 +24,6 @@ const loginUsuario = async (req, res) => {
 
         return res.status(200).json({ token });
     } catch (error) {
-        console.error(error.message);
         return res.status(500).json({ mensagem: 'Erro Interno no Servidor' });
     }
 };
