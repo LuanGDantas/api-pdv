@@ -6,14 +6,19 @@ const autenticacaoToken = async (req, res, next) => {
 
     try {
         if (!authorization) {
-            return res.status(401).json({ mensagem: 'Usuario não autorizado' });
+            return res
+                .status(400)
+                  .json({
+                    mensagem:
+                        'Para acessar este recurso um token de autenticação válido deve ser enviado.',
+                });
         }
 
         const tokenUsuario = authorization.split(' ')[1];
 
         const { id } = verify(tokenUsuario, process.env.JWT_SECRET_KEY);
 
-        const usuario = await knexConfigurado('usuarios').where({id}).first();
+        const usuario = await knexConfigurado('usuarios').where({ id }).first();
 
         if (!usuario) {
             return res.status(401).json({ mensagem: 'Usuario não autorizado' });
@@ -22,9 +27,8 @@ const autenticacaoToken = async (req, res, next) => {
 
         next();
     } catch (error) {
-        console.log(error.message);
-        return res.status(500).json({
-            mensagem: 'erro interno do servidor1',
+        return res.status(401).json({
+            mensagem: 'Usuário não autorizado',
         });
     }
 };
