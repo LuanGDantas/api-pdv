@@ -29,6 +29,6 @@ rotas.get('/usuario', detalharUsuario);
 
 rotas.put('/usuario', validarCorpoRequisicao(schemaUsuario), atualizarUsuario);
 
-rotas.post('/prodoto',validarCorpoRequisicao(schemaProduto), cadastrarProduto)
+rotas.post('/produto',validarCorpoRequisicao(schemaProduto), cadastrarProduto)
 
 module.exports = rotas;
