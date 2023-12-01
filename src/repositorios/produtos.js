@@ -18,4 +18,4 @@ const inserirProduto = async (
     return produto;
 };
 
-module.exports = inserirProduto;
+module.exports = { inserirProduto };
