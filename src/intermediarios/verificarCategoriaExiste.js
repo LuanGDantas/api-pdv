@@ -1,6 +1,6 @@
 const { buscarCategoriaPorId } = require('../repositorios/categorias');
 
-const verificarCategoria = async (req, res, next) => {
+const verificarCategoriaExiste = async (req, res, next) => {
     const categoria_id = req.body.categoria_id ?? req.query.categoria_id;
     try {
         const categoriaExiste = await buscarCategoriaPorId(categoria_id);
@@ -15,4 +15,4 @@ const verificarCategoria = async (req, res, next) => {
     }
 };
 
-module.exports = verificarCategoria;
+module.exports = verificarCategoriaExiste;
