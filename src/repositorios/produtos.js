@@ -20,6 +20,13 @@ const alterarProduto = async ({
     return produto;
 };
 
+const buscarProdutoPorId = async id => {
+    const produto = await bancoDeDados('produtos').where({ id }).first();
+
+    return produto;
+};
+
 module.exports = {
     alterarProduto,
+    buscarProdutoPorId,
 };
