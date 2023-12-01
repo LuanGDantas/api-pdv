@@ -12,6 +12,9 @@ const autenticacaoToken = require('../intermediarios/autenticacaoToken');
 const schemaUsuario = require('../validacoes/schemaUsuario');
 const schemaLoginUsuario = require('../validacoes/schemaLoginUsuario');
 
+const schemaProduto = require('../validacoes/schemaProduto');
+const cadastrarProduto = require('../controladores/produtos/cadastrarProdutos');
+
 const rotas = Router();
 
 rotas.post('/usuario', validarCorpoRequisicao(schemaUsuario), cadastrarUsuario);
@@ -25,5 +28,7 @@ rotas.use(autenticacaoToken);
 rotas.get('/usuario', detalharUsuario);
 
 rotas.put('/usuario', validarCorpoRequisicao(schemaUsuario), atualizarUsuario);
+
+rotas.post('/produto',validarCorpoRequisicao(schemaProduto), cadastrarProduto)
 
 module.exports = rotas;
