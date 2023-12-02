@@ -7,6 +7,7 @@ const atualizarUsuario = require('../controladores/usuarios/atualizarUsuario');
 const listarCategorias = require('../controladores/usuarios/listarCategorias');
 const atualizarProduto = require('../controladores/produtos/atualizarProduto');
 const cadastrarProduto = require('../controladores/produtos/cadastrarProdutos');
+const detalharProduto = require('../controladores/produtos/detalharProduto');
 
 const validarCorpoRequisicao = require('../intermediarios/validarCorpoRequisicao');
 const autenticacaoToken = require('../intermediarios/autenticacaoToken');
@@ -39,5 +40,6 @@ rotas.put(
     verificarCategoriaExiste,
     atualizarProduto,
 );
+rotas.get('/produto/:id', verificarProdutoExiste, detalharProduto);
 
 module.exports = rotas;
