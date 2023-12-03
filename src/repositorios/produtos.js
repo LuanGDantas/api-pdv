@@ -44,8 +44,8 @@ const buscarProdutoPorId = async id => {
     return produto;
 };
 
-const listaDeProduto = async (filtro= {}) => {
-    produto = await bancoDeDados('produtos').where(filtro);
+const buscarProduto = async (filtro = {}) => {
+    const produto = await bancoDeDados('produtos').where(filtro);
     return produto;
 };
 
@@ -53,5 +53,5 @@ module.exports = {
     inserirProduto,
     alterarProduto,
     buscarProdutoPorId,
-    listaDeProduto,
+    buscarProduto,
 };
