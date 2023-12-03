@@ -35,7 +35,7 @@ create table clientes (
     id serial primary key,
     nome text not null,
     email text not null unique,
-    cpf varchar(11) not null unique
+    cpf varchar(11) not null unique,
   	cep text,
   	rua text,
   	numero text,
