@@ -32,7 +32,7 @@ rotas.get('/usuario', detalharUsuario);
 
 rotas.put('/usuario', validarCorpoRequisicao(schemaUsuario), atualizarUsuario);
 
-rotas.post('/produto', validarCorpoRequisicao(schemaProduto), cadastrarProduto);
+rotas.post('/produto', validarCorpoRequisicao(schemaProduto), verificarCategoriaExiste, cadastrarProduto);
 rotas.put(
     '/produto/:id',
     validarCorpoRequisicao(schemaProduto),
