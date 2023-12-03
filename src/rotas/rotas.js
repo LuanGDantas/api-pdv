@@ -17,6 +17,7 @@ const verificarCategoriaExiste = require('../intermediarios/verificarCategoriaEx
 const schemaUsuario = require('../validacoes/schemaUsuario');
 const schemaLoginUsuario = require('../validacoes/schemaLoginUsuario');
 const schemaProduto = require('../validacoes/schemaProduto');
+const listarProduto = require('../controladores/produtos/listarProduto');
 
 const rotas = Router();
 
@@ -41,5 +42,5 @@ rotas.put(
     atualizarProduto,
 );
 rotas.get('/produto/:id', verificarProdutoExiste, detalharProduto);
-
+rotas.get('/produto',verificarCategoriaExiste, listarProduto)
 module.exports = rotas;
