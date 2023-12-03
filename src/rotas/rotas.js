@@ -41,5 +41,5 @@ rotas.put(
     atualizarProduto,
 );
 rotas.get('/produto/:id', verificarProdutoExiste, detalharProduto);
-
+rotas.get('/produto', listarProduto)
 module.exports = rotas;
