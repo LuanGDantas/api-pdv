@@ -15,8 +15,7 @@ const listarProduto = async (req, res) => {
         const lista = await buscarProduto();
         return res.status(200).json(lista);
     } catch (error) {
-        console.log(error.message);
-        return res.status(500).json({ mensagem: 'Erro interno do servidor1' });
+        return res.status(500).json({ mensagem: 'Erro Interno do Servidor' });
     }
 };
 
