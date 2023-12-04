@@ -28,6 +28,13 @@ const inserirCliente = async (
     return cliente;
 };
 
+const buscarClientePorEmail = async email => {
+    const cliente = await bancoDeDados('clientes').where({ email }).first();
+
+    return cliente;
+};
+
 module.exports = {
     inserirCliente,
+    buscarClientePorEmail,
 };
