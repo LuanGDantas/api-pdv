@@ -34,7 +34,14 @@ const buscarClientePorEmail = async email => {
     return cliente;
 };
 
+const buscarClientePorCpf = async cpf => {
+    const cliente = await bancoDeDados('clientes').where({ cpf }).first();
+
+    return cliente;
+};
+
 module.exports = {
     inserirCliente,
     buscarClientePorEmail,
+    buscarClientePorCpf,
 };
