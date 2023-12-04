@@ -6,6 +6,13 @@ const buscarCategoriaPorId = async id => {
     return categoria;
 };
 
+const buscarCategorias = async (filtros = {}) => {
+    const categorias = await bancoDeDados('categorias').where(filtros);
+
+    return categorias;
+};
+
 module.exports = {
     buscarCategoriaPorId,
+    buscarCategorias,
 };
