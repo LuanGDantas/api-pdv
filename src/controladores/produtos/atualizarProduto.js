@@ -1,7 +1,4 @@
-const {
-    buscarProdutoPorId,
-    alterarProduto,
-} = require('../../repositorios/produtos');
+const { alterarProduto } = require('../../repositorios/produtos');
 
 const atualizarProduto = async (req, res) => {
     const { id } = req.params;

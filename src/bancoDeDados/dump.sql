@@ -41,6 +41,5 @@ create table clientes (
   	numero text,
   	bairro text,
   	cidade text,
-  	estado text
-  	
+  	estado text 	
 );
