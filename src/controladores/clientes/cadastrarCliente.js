@@ -5,8 +5,7 @@ const {
 } = require('../../repositorios/clientes');
 
 const cadastrarCliente = async (req, res) => {
-    const { nome, email, cpf, cep, rua, numero, bairro, cidade, estado } =
-        req.body;
+    const { nome, email, cpf } = req.body;
 
     try {
         const clienteComMesmoEmailExiste = await buscarClientePorEmail(email);
@@ -16,24 +15,14 @@ const cadastrarCliente = async (req, res) => {
             });
         }
 
-        const clienteComMesmoCpfExiste = await buscarClientePorCpf(email);
+        const clienteComMesmoCpfExiste = await buscarClientePorCpf(cpf);
         if (!!clienteComMesmoCpfExiste) {
             return res.status(400).json({
                 mensagem: 'Já existe cliente cadastrado com o CPF informado',
             });
         }
 
-        const cliente = await inserirCliente(
-            nome,
-            email,
-            cpf,
-            cep,
-            rua,
-            numero,
-            bairro,
-            cidade,
-            estado,
-        );
+        const cliente = await inserirCliente({ nome, email, cpf });
 
         return res.status(200).json(cliente);
     } catch (error) {

@@ -1,6 +1,6 @@
 const bancoDeDados = require('../config/knexConfigurado');
 
-const inserirCliente = async (
+const inserirCliente = async ({
     nome,
     email,
     cpf,
@@ -10,7 +10,7 @@ const inserirCliente = async (
     bairro,
     cidade,
     estado,
-) => {
+}) => {
     const [cliente] = await bancoDeDados('clientes')
         .insert({
             nome,
