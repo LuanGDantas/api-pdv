@@ -31,5 +31,6 @@ rotasProdutos.put(
 );
 rotasProdutos.get('/produto/:id', verificarProdutoExiste, detalharProduto);
 rotasProdutos.get('/produto', verificarCategoriaExiste, listarProduto);
+rotasProdutos.delete('produto/:id',verificarProdutoExiste, deletarProduto)
 
 module.exports = rotasProdutos;
