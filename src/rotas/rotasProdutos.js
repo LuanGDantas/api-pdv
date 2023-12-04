@@ -11,6 +11,7 @@ const verificarProdutoExiste = require('../intermediarios/verificarProdutoExiste
 const verificarCategoriaExiste = require('../intermediarios/verificarCategoriaExiste');
 
 const schemaProduto = require('../validacoes/schemaProduto');
+const deletarProduto = require('../controladores/produtos/deletarProduto');
 
 const rotasProdutos = Router();
 
@@ -30,7 +31,7 @@ rotasProdutos.put(
     atualizarProduto,
 );
 rotasProdutos.get('/produto/:id', verificarProdutoExiste, detalharProduto);
-rotasProdutos.get('/produto', verificarCategoriaExiste, listarProduto);
-rotasProdutos.delete('produto/:id',verificarProdutoExiste, deletarProduto)
+rotasProdutos.get('/produto',listarProduto);
+rotasProdutos.delete('/produto/:id', verificarProdutoExiste, deletarProduto);
 
 module.exports = rotasProdutos;
