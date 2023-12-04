@@ -1,4 +1,3 @@
-const { buscarCategoriaPorId } = require('../../repositorios/categorias');
 const { listaDeProduto } = require('../../repositorios/produtos');
 
 const listarProduto = async (req, res) => {
