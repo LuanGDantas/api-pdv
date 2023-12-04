@@ -7,7 +7,7 @@ const listarProduto = async (req, res) => {
         const lista = await listaDeProduto({ categoria_id });
         return res.status(200).json(lista);
     } catch (error) {
-        return res.status(500).json({ mensagem: 'Erro interno do servidor' });
+        return res.status(500).json({ mensagem: 'Erro Interno do Servidor' });
     }
 };
 
