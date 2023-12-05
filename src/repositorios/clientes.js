@@ -1,5 +1,10 @@
 const bancoDeDados = require('../config/knexConfigurado');
 
+const buscarClientePorId = async id => {
+    const existeCliente = await bancoDeDados('clientes').where({ id }).first();
+    return existeCliente;
+};
+
 const inserirCliente = async ({
     nome,
     email,
@@ -82,4 +87,5 @@ module.exports = {
     buscarClientePorCpf,
     buscarClientes,
     alterarCliente,
+    buscarClientePorId,
 };
