@@ -7,7 +7,7 @@ const verificarClienteExiste = async (req, res, next) => {
                 .json({ mensagem: 'É obrigatorio informar o id do cliente!' });
         }
 
-        const existeCliente = await buscarClientePorId({ id });
+        const existeCliente = await buscarClientePorId(id);
 
         if (!existeCliente) {
             return res
@@ -20,4 +20,4 @@ const verificarClienteExiste = async (req, res, next) => {
     }
 };
 
-module.exports = verificarClienteExiste
+module.exports = verificarClienteExiste;
