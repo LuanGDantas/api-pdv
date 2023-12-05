@@ -1,7 +1,11 @@
-const { alterarCliente } = require('../../repositorios/clientes');
+const {
+    alterarCliente,
+    buscarClientePorEmail,
+    buscarClientePorCpf,
+} = require('../../repositorios/clientes');
 
 const atualizarCliente = async (req, res) => {
-    const { id } = req.params;
+    const { id } = req.cliente;
     const { nome, email, cpf } = req.body;
 
     try {
@@ -31,7 +35,7 @@ const atualizarCliente = async (req, res) => {
 
         return res.status(200).json(clienteAtualizado);
     } catch (error) {
-        return res.status(500).json({ mensage: 'Erro Interno no Servidor' });
+        return res.status(500).json({ mensagem: 'Erro Interno no Servidor' });
     }
 };
 

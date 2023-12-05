@@ -4,16 +4,16 @@ const deletarProduto = async (req, res) => {
     const { id } = req.produto;
 
     try {
-        const excluir = await excluirProduto(id);
+        const produtoExcluido = await excluirProduto(id);
+        if (!produtoExcluido) {
+            return res
+                .status(500)
+                .json({ mensagem: `Erro ao deletar produto` });
+        }
 
-        const excluidos = excluir > 1 ? 'produtos' : 'produto';
-
-        return res
-            .status(200)
-            .json({ mensagem: `Sucesso ao deletar ${excluir} ${excluidos}` });
+        return res.status(200).json({ mensagem: `Sucesso ao deletar produto` });
     } catch (error) {
-        
-        return res.status(500).json({ mensagem: 'Erro interno do servidor' });
+        return res.status(500).json({ mensagem: 'Erro Interno do Servidor' });
     }
 };
 

@@ -1,3 +1,5 @@
+const { buscarClientePorId } = require('../repositorios/clientes');
+
 const verificarClienteExiste = async (req, res, next) => {
     const { id } = req.params;
     try {
@@ -15,8 +17,10 @@ const verificarClienteExiste = async (req, res, next) => {
                 .json({ mensagem: 'Cliente não encontrado!' });
         }
         req.cliente = existeCliente;
+
+        next();
     } catch (error) {
-        return res.status(500).json({ mensagem: 'Erro interno do servidor' });
+        return res.status(500).json({ mensagem: 'Erro Interno do Servidor' });
     }
 };
 

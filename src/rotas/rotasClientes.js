@@ -22,8 +22,9 @@ rotasClientes.post(
     cadastrarCliente,
 );
 rotasClientes.put(
-    '/cliente',
+    '/cliente/:id',
     validarCorpoRequisicao(schemaCliente),
+    verificarClienteExiste,
     atualizarCliente,
 );
 rotasClientes.get('/cliente', listarClientes);
