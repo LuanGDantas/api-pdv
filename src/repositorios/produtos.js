@@ -1,11 +1,11 @@
 const bancoDeDados = require('../config/knexConfigurado');
 
-const inserirProduto = async (
+const inserirProduto = async ({
     descricao,
     quantidade_estoque,
     valor,
     categoria_id,
-) => {
+}) => {
     const [produto] = await bancoDeDados('produtos')
         .insert({
             descricao,
@@ -23,7 +23,7 @@ const alterarProduto = async ({
     descricao,
     quantidade_estoque,
     valor,
-    categotia_id,
+    categoria_id,
 }) => {
     const [produto] = await bancoDeDados('produtos')
         .where({ id })
@@ -31,7 +31,7 @@ const alterarProduto = async ({
             descricao,
             quantidade_estoque,
             valor,
-            categotia_id,
+            categoria_id,
         })
         .returning('*');
 
@@ -49,9 +49,14 @@ const buscarProduto = async (filtro = {}) => {
     return produto;
 };
 
+const excluirProduto = async id => {
+    return await bancoDeDados('produtos').where({ id }).del();
+};
+
 module.exports = {
     inserirProduto,
     alterarProduto,
     buscarProdutoPorId,
     buscarProduto,
+    excluirProduto,
 };
