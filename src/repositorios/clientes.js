@@ -40,6 +40,12 @@ const buscarClientePorCpf = async cpf => {
     return cliente;
 };
 
+const buscarClientes = async () => {
+    const clientes = await bancoDeDados('clientes');
+
+    return clientes;
+};
+
 const alterarCliente = async ({
     id,
     nome,
@@ -74,5 +80,6 @@ module.exports = {
     inserirCliente,
     buscarClientePorEmail,
     buscarClientePorCpf,
+    buscarClientes,
     alterarCliente,
 };
