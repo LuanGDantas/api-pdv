@@ -40,8 +40,39 @@ const buscarClientePorCpf = async cpf => {
     return cliente;
 };
 
+const alterarCliente = async ({
+    id,
+    nome,
+    email,
+    cpf,
+    cep,
+    rua,
+    numero,
+    bairro,
+    cidade,
+    estado,
+}) => {
+    const [cliente] = await bancoDeDados('clientes')
+        .where({ id })
+        .update({
+            nome,
+            email,
+            cpf,
+            cep,
+            rua,
+            numero,
+            bairro,
+            cidade,
+            estado,
+        })
+        .returning('*');
+
+    return cliente;
+};
+
 module.exports = {
     inserirCliente,
     buscarClientePorEmail,
     buscarClientePorCpf,
+    alterarCliente,
 };
