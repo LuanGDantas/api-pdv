@@ -1,12 +1,8 @@
-//const { buscarCategorias } = require('../../repositorios/usuarios');
-
-const knexConfigurado = require('../../config/knexConfigurado');
+const { buscarCategorias } = require('../../repositorios/categorias');
 
 const listarCategorias = async (req, res) => {
-
     try {
-
-        const categorias = await knexConfigurado('categorias');
+        const categorias = await buscarCategorias();
         if (categorias.length === 0) {
             return res
                 .status(400)
