@@ -6,7 +6,8 @@ const {
 
 const atualizarCliente = async (req, res) => {
     const { id } = req.cliente;
-    const { nome, email, cpf } = req.body;
+    const { nome, email, cpf, cep, rua, numero, bairro, cidade, estado } =
+        req.body;
 
     try {
         const clienteComMesmoEmailExiste = await buscarClientePorEmail(email);
@@ -31,6 +32,12 @@ const atualizarCliente = async (req, res) => {
             nome,
             email,
             cpf,
+            cep,
+            rua,
+            numero,
+            bairro,
+            cidade,
+            estado,
         });
 
         return res.status(200).json(clienteAtualizado);
