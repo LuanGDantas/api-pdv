@@ -72,3 +72,5 @@ const cadastarPedido = async (req, res) => {
         return res.status(500).json({ mensagem: 'Erro Interno no Servidor' });
     }
 };
+
+module.exports = cadastarPedido;
