@@ -20,7 +20,7 @@ const cadastarPedido = async (req, res) => {
                 });
             }
 
-            if (produto.quantidade_estoque >= quantidade_produto) {
+            if (quantidade_produto > produto.quantidade_estoque) {
                 return res.status(400).json({
                     mensagem: `Estoque insuficiente do produto, ${produto.descricao}, para atender ao pedido`,
                 });
@@ -50,12 +50,13 @@ const cadastarPedido = async (req, res) => {
                 id,
                 quantidade_estoque: quantidade_estoque - quantidade_produto,
             });
+            produtoAtualizado.valor = produtoAtualizado.valor / 100;
             produtosAtualizados.push({
                 ...produtoAtualizado,
                 quantidade_produto,
             });
         }
-        pedido.produto = produtosAtualizados;
+        pedido.produtos = produtosAtualizados;
 
         enviarEmailParaCliente({
             para: {
@@ -64,11 +65,12 @@ const cadastarPedido = async (req, res) => {
             },
             assunto: `${cliente.nome}, seu pedido foi confirmado!`,
             template: './src/templates/emailConfirmacaoPedido.html',
-            dados: produtoAtualizado,
+            dados: pedido,
         });
 
         return res.status(201).json(pedido);
     } catch (error) {
+        console.log(error.message);
         return res.status(500).json({ mensagem: 'Erro Interno no Servidor' });
     }
 };
