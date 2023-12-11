@@ -12,14 +12,14 @@ const cliente = nodemailer.createTransport({
 });
 
 const enviarEmailViaSmtp = async ({ de, para, assunto, template, dados }) => {
-    const { name, email } = configEmail.remetentePadrao;
+    const { nome, email } = configEmail.remetentePadrao;
 
     const html = await compilarTemplateHtml(template, dados);
 
     cliente.sendMail({
         from: {
-            name: de.name || name,
-            address: de.email || email,
+            name: de?.nome || nome,
+            address: de?.email || email,
         },
         to: {
             name: para.nome,
