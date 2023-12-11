@@ -1,6 +1,6 @@
 module.exports = {
     remetentePadrao: {
+        nome: 'PDV (Frente de Caixa)',
         email: process.env.SENDER_EMAIL,
-        name: 'PDV (Frente de Caixa)',
     },
 };
