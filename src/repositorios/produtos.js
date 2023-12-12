@@ -28,7 +28,6 @@ const alterarProduto = async ({
     categoria_id,
     produto_imagem,
 }) => {
-    console.log(produto_imagem);
     const [produto] = await bancoDeDados('produtos')
         .where({ id })
         .update({

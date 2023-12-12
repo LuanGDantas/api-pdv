@@ -70,7 +70,6 @@ const cadastarPedido = async (req, res) => {
 
         return res.status(201).json(pedido);
     } catch (error) {
-        console.log(error.message);
         return res.status(500).json({ mensagem: 'Erro Interno no Servidor' });
     }
 };

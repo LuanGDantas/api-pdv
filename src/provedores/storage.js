@@ -21,8 +21,7 @@ const deletarArquivo = async path => {
         Bucket: process.env.BLACKBLAZE_BUCKET,
         Key: path,
     });
-    const result = await s3.send(commando);
-    console.log(result);
+    await s3.send(commando);
 };
 
 module.exports = {
