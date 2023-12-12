@@ -5,6 +5,7 @@ const inserirProduto = async ({
     quantidade_estoque,
     valor,
     categoria_id,
+    produto_imagem,
 }) => {
     const [produto] = await bancoDeDados('produtos')
         .insert({
@@ -12,6 +13,7 @@ const inserirProduto = async ({
             quantidade_estoque,
             valor,
             categoria_id,
+            produto_imagem,
         })
         .returning('*');
 
@@ -24,7 +26,9 @@ const alterarProduto = async ({
     quantidade_estoque,
     valor,
     categoria_id,
+    produto_imagem,
 }) => {
+    console.log(produto_imagem);
     const [produto] = await bancoDeDados('produtos')
         .where({ id })
         .update({
@@ -32,6 +36,7 @@ const alterarProduto = async ({
             quantidade_estoque,
             valor,
             categoria_id,
+            produto_imagem,
         })
         .returning('*');
 
