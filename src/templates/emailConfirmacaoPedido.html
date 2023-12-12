@@ -6,63 +6,99 @@
         <title>Pedido concluído</title>
     </head>
     <body style="margin: 0; padding: 0" bgcolor="#EFEFEF">
-        <table 
-            width="720" 
-            align="center" 
-            bgcolor="#ffffff" 
-            border="0" 
-            cellpadding="0" 
-            cellspacing="0" 
-            style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;"
+        <table
+            width="720"
+            align="center"
+            bgcolor="#ffffff"
+            border="0"
+            cellpadding="0"
+            cellspacing="0"
+            style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif"
         >
             <tr>
-                <td align="center" wigth="100%" style="padding: 5px 0 5px 0px;">
-                        <h3>PDV (Frente de Caixa)</h3>
+                <td align="center" wigth="100%" style="padding: 5px 0 5px 0px">
+                    <h3>PDV (Frente de Caixa)</h3>
                 </td>
             </tr>
             <tr>
-                <td bgcolor="#31394D" style="color: #ffffff;">
+                <td bgcolor="#31394D" style="color: #ffffff">
                     <table cellpadding="0" cellspacing="0" width="100%">
                         <tr>
-                            <td align="center" style="padding: 10px 0 5px 0px;">
+                            <td align="center" style="padding: 10px 0 5px 0px">
                                 <h1>Obrigado pelo seu pedido!</h1>
                             </td>
                         </tr>
                         <tr>
-                            <td align="center" style="padding: 5px 40px 10px 40px; font-weight: 500;">
-                                <p>Revise as informações do seu pedido abaixo</p>
+                            <td
+                                align="center"
+                                style="
+                                    padding: 5px 40px 10px 40px;
+                                    font-weight: 500;
+                                "
+                            >
+                                <p>
+                                    Revise as informações do seu pedido abaixo
+                                </p>
                             </td>
                         </tr>
                     </table>
-                    
                 </td>
             </tr>
             <tr>
-                <td style="padding: 40px 30px 40px 30px;">
+                <td
+                    align="center"
+                    wigth="100%"
+                    style="padding: 15px 0px 5px 0px"
+                >
+                    <p>Pedido de ID {{id}} concluído com sucesso</p>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 15px 30px 40px 30px">
                     <table cellpadding="0" cellspacing="0" width="100%">
                         <tr>
-                            <td style="padding: 5px 0 5px 20px;">
+                            <td style="padding: 5px 0 5px 20px">
                                 <h3>ITENS DO PEDIDO:</h3>
                             </td>
                         </tr>
                         <tr>
-                            <td style="padding:20px;Margin:0">
-                                <table cellpadding="0" cellspacing="0" width="100%">
+                            <td style="padding: 20px; margin: 0">
+                                <table
+                                    cellpadding="0"
+                                    cellspacing="0"
+                                    width="100%"
+                                >
                                     {{#each produtos}}
-                                        <tr>
-                                            <td width="180px">
-                                                <img src="{{this.produto_imagem}}" alt="Imagem {{this.descricao}}" width="100%">
-                                            </td>
-                                            <td width="20px"></td>
-                                            <td width="173px" style="line-height: 10px;">
-                                                <p align="left">{{this.descricao}}</p>
-                                                <p align="left">Qtd: <span>{{this.quantidade_produto}}</span></p>
-                                            </td>
-                                            <td width="20px"></td>
-                                            <td width="173px" >
-                                                <p align="right">R$ <span>{{this.valor_produto}}</span></p>
-                                            </td>
-                                        </tr>
+                                    <tr>
+                                        <td width="180px">
+                                            <img
+                                                src="{{this.produto_imagem}}"
+                                                alt="Imagem {{this.descricao}}"
+                                                width="100%"
+                                            />
+                                        </td>
+                                        <td width="20px"></td>
+                                        <td
+                                            width="173px"
+                                            style="line-height: 10px"
+                                        >
+                                            <p align="left">
+                                                {{this.descricao}}
+                                            </p>
+                                            <p align="left">
+                                                Qtd:
+                                                <span
+                                                    >{{this.quantidade_produto}}</span
+                                                >
+                                            </p>
+                                        </td>
+                                        <td width="20px"></td>
+                                        <td width="173px">
+                                            <p align="right">
+                                                R$ <span>{{this.valor}}</span>
+                                            </p>
+                                        </td>
+                                    </tr>
                                     {{/each}}
                                 </table>
                             </td>
@@ -71,10 +107,21 @@
                 </td>
             </tr>
             <tr>
-                <td bgcolor="#31394D" style="padding:20px;margin:0;color: #ffffff;">
+                <td
+                    bgcolor="#31394D"
+                    style="padding: 20px; margin: 0; color: #ffffff"
+                >
                     <table cellpadding="0" cellspacing="0" width="100%">
                         <tr>
-                            <td align="center"  width="100%" style="padding: 10px 0 10px 0px; font-size: 18px; font-weight: 700;">
+                            <td
+                                align="center"
+                                width="100%"
+                                style="
+                                    padding: 10px 0 10px 0px;
+                                    font-size: 18px;
+                                    font-weight: 700;
+                                "
+                            >
                                 <h2>Alguma dúvida?</h2>
                             </td>
                         </tr>
@@ -82,11 +129,19 @@
                             <td align="center" width="100%">
                                 <table cellpadding="0" cellspacing="0">
                                     <tr>
-                                        <td align="center" width="380px" style="padding: 5px 0px 5px 0px;">
+                                        <td
+                                            align="center"
+                                            width="380px"
+                                            style="padding: 5px 0px 5px 0px"
+                                        >
                                             <p>pdvtechninjas@gmail.com</p>
                                         </td>
                                         <td width="20px">&nbsp;</td>
-                                        <td align="center" width="380px" style="padding: 5px 0px 5px 0px;">
+                                        <td
+                                            align="center"
+                                            width="380px"
+                                            style="padding: 5px 0px 5px 0px"
+                                        >
                                             <p>(00) 9 99123-4567</p>
                                         </td>
                                     </tr>
