@@ -1,6 +1,6 @@
 const nodemailer = require('nodemailer');
 const configEmail = require('../config/email');
-const compilarTemplateHtml = require('./compilarTemplateHtml');
+const compilarTemplateHtml = require('../utilitarias/compilarTemplateHtml');
 
 const cliente = nodemailer.createTransport({
     host: process.env.SMTP_HOST,
@@ -11,7 +11,7 @@ const cliente = nodemailer.createTransport({
     },
 });
 
-const enviarEmailViaSmtp = async ({ de, para, assunto, template, dados }) => {
+const enviarEmail = async ({ de, para, assunto, template, dados }) => {
     const { nome, email } = configEmail.remetentePadrao;
 
     const html = await compilarTemplateHtml(template, dados);
@@ -30,4 +30,4 @@ const enviarEmailViaSmtp = async ({ de, para, assunto, template, dados }) => {
     });
 };
 
-module.exports = enviarEmailViaSmtp;
+module.exports = enviarEmail;

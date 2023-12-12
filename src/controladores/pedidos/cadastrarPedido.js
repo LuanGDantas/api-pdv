@@ -3,7 +3,7 @@ const {
     buscarProdutoPorId,
     alterarProduto,
 } = require('../../repositorios/produtos');
-const enviarEmailParaCliente = require('../../utilitarias/enviarEmailViaSmtp');
+const enviarEmailParaCliente = require('../../provedores/SMTPEmail');
 
 const cadastarPedido = async (req, res) => {
     const { cliente_id, observacao, pedido_produtos } = req.body;
