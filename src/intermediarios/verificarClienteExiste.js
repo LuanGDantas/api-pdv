@@ -1,7 +1,7 @@
 const { buscarClientePorId } = require('../repositorios/clientes');
 
 const verificarClienteExiste = async (req, res, next) => {
-    const id = Number(req.params.id);
+    const id = Number(req.params.id ?? req.body.cliente_id);
     try {
         if (isNaN(id)) {
             return res.status(400).json({
