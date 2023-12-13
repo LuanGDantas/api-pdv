@@ -17,7 +17,7 @@ const schemaProduto = joi.object({
 
     valor: joi.number().integer().positive().required().messages({
         'any.required':
-            'O campo valor é obrigatório, representado em centavos (Ex.: R$ 10,00 reais = 1000)',
+            'O campo valor é obrigatório e deve ser um número inteiro positivo, representado em centavos (Ex.: R$ 10,00 reais = 1000)',
         'number.base':
             'O campo valor deve ser um númerico inteiro positivo, representado em centavos (Ex.: R$ 10,00 reais = 1000)',
         'number.positive':
@@ -26,7 +26,7 @@ const schemaProduto = joi.object({
 
     categoria_id: joi.number().integer().positive().required().messages({
         'any.required':
-            'O campo ID da categoria é obrigatório, , referente a um categoria existente',
+            'O campo ID da categoria é obrigatório e deve ser um número inteiro positivo, referente a um categoria existente',
         'number.base':
             'O campo ID da categoria deve ser um número inteiro positivo, referente a um categoria existente',
         'number.positive':
