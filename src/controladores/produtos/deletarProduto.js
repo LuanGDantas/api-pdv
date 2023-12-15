@@ -1,13 +1,13 @@
 const { excluirProduto } = require('../../repositorios/produtos');
 const { deletarArquivo } = require('../../provedores/storage');
-const { buscarPedidos } = require('../../repositorios/pedidos');
+const { buscarProdutosEmPedido } = require('../../repositorios/pedidos');
 
 const deletarProduto = async (req, res) => {
     const { id } = req.produto;
     const produto = req.produto;
 
     try {
-        const existeProduto = await buscarPedidos(id);
+        const existeProduto = await buscarProdutosEmPedido(id);
         if (existeProduto) {
             return res.status(400).json({
                 mensagem: `O produto só pode ser excluido se não estiver incluido a algum pedido`,
