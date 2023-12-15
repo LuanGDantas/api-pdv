@@ -1,6 +1,7 @@
 const { Router } = require('express');
 
 const cadastarPedido = require('../controladores/pedidos/cadastrarPedido');
+const listarPedidos = require('../controladores/pedidos/listarPedidos');
 
 const verificarClienteExiste = require('../intermediarios/verificarClienteExiste');
 const validarCorpoRequisicao = require('../intermediarios/validarCorpoRequisicao');
@@ -15,5 +16,7 @@ rotasPedidos.post(
     verificarClienteExiste,
     cadastarPedido,
 );
+
+rotasPedidos.get('/pedido', listarPedidos);
 
 module.exports = rotasPedidos;
