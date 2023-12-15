@@ -33,6 +33,15 @@ const inserirPedido = async ({
     };
 };
 
+const buscarPedidoProdutosPorProduto = async produto_id => {
+    const pedido_produtos = await bancoDeDados('pedido_produtos').where(
+        'pedido_produtos.produto_id',
+        '=',
+        produto_id,
+    );
+    return pedido_produtos;
+};
+
 const buscarPedidos = async (filtro = {}) => {
     const pedidos = await bancoDeDados('pedidos').where(filtro);
 
@@ -50,6 +59,7 @@ const buscarPedidos = async (filtro = {}) => {
 };
 
 module.exports = {
-    inserirPedido,
     buscarPedidos,
+    inserirPedido,
+    buscarPedidoProdutosPorProduto,
 };
