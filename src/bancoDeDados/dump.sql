@@ -43,3 +43,20 @@ create table clientes (
   	cidade text,
   	estado text 	
 );
+
+create table pedidos (
+    id serial primary key,
+    cliente_id int not null references clientes(id),
+    observacao text,
+    valor_total int not null
+);
+
+create table pedido_produtos (
+    id serial primary key,
+    pedido_id int not null references pedidos(id),
+    produto_id int not null references produtos(id),
+    quantidade_produto int not null,
+    valor_produto int not null
+);
+
+alter table produtos add column produto_imagem text;

@@ -1,7 +1,7 @@
 const { buscarClientePorId } = require('../repositorios/clientes');
 
 const verificarClienteExiste = async (req, res, next) => {
-    const id = Number(req.params.id);
+    const id = Number(req.params.id ?? req.body.cliente_id);
     try {
         if (isNaN(id)) {
             return res.status(400).json({
@@ -21,7 +21,6 @@ const verificarClienteExiste = async (req, res, next) => {
 
         next();
     } catch (error) {
-        console.log(error.message);
         return res.status(500).json({ mensagem: 'Erro Interno do Servidor' });
     }
 };
